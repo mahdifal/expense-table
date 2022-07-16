@@ -1,23 +1,6 @@
 import React from "react";
 import Papa, { ParseResult } from "papaparse";
-
-export type Data = {
-  project_name: string;
-  departments: string;
-  amount: string;
-  date: string;
-  member_name: string;
-};
-
-export type TypeValue = {
-  data: {
-    project_name: string;
-    departments: string;
-    amount: string;
-    date: string;
-    member_name: string;
-  }[];
-};
+import { TypeValue, Data } from "types";
 
 const useReadCSV = () => {
   const [values, setValues] = React.useState<TypeValue | undefined>();
