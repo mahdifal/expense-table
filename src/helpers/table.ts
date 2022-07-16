@@ -1,5 +1,4 @@
-import React from "react";
-import { TypeValue, Data, SortOrder, SortKeys } from "types";
+import { TypeValue, SortKeys } from "types";
 
 export const renderDropdownTable = (
   optionName: string,
@@ -16,7 +15,7 @@ export const renderDropdownTable = (
     const amount = values?.data
       // @ts-ignore
       .filter((item) => item[optionName] === unique)
-      .map((item) => Number(item?.amount?.replace(/[^0-9\-]+/g, "")))
+      .map((item) => Number(item?.amount?.replace(/[^0-9-]+/g, "")))
       .reduce((item, curr) => item + curr, 0);
 
     return {

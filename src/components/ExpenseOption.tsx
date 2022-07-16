@@ -14,12 +14,15 @@ const ExpenseOption: React.FC = () => {
   return (
     <Row>
       <Col md={{ span: 4, offset: 4 }} className="d-flex justify-content-end">
-        <p className="mt-2">Total Expanses by: </p>
+        <p className="mt-2" data-testid="total-expense">
+          Total Expanses by:{" "}
+        </p>
       </Col>
       <Col className="mb-4">
         <Form.Select
           aria-label="Calculate Expense By"
           onChange={handleDropdownChange}
+          data-testid="expense-option"
         >
           {dropdownItems?.map((opt) => (
             <option key={opt.key} value={opt.key}>

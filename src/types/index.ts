@@ -15,5 +15,5 @@ export type TypeValue = {
 
 export type OptionContextType = {
   option: string;
-  setOption?: (option: string) => void | undefined;
+  setOption: (option: string) => void | undefined;
 };
