@@ -2,10 +2,13 @@
 
 <img alt="view-1" src="src/assets/img/logo.png">
 
-Expense data in tabular with sort and filter.
+Expense data in tabular with sort and filter with the click on '▲'.
 
 <img alt="view-1" src="src/assets/img/screen1.png">
+
+By changing the option you can see the result of the expense calculation.
 <img alt="view-1" src="src/assets/img/screen2.png">
+
 ## Packages
 
 - react, typescript
