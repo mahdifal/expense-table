@@ -1,9 +1,9 @@
-import React from "react";
-import Papa, { ParseResult } from "papaparse";
-import { TypeValue, Data } from "types";
+import React from "react"
+import Papa, { ParseResult } from "papaparse"
+import { TypeValue, Data } from "types"
 
 const useReadCSV = () => {
-  const [values, setValues] = React.useState<TypeValue | undefined>();
+  const [values, setValues] = React.useState<TypeValue | undefined>()
 
   const getCSV = () => {
     Papa.parse("/expanses.csv", {
@@ -12,16 +12,16 @@ const useReadCSV = () => {
       skipEmptyLines: true,
       delimiter: ",",
       complete: (results: ParseResult<Data>) => {
-        setValues(results);
+        setValues(results)
       },
-    });
-  };
+    })
+  }
 
   React.useEffect(() => {
-    getCSV();
-  }, []);
+    getCSV()
+  }, [])
 
-  return values;
-};
+  return values
+}
 
-export default useReadCSV;
+export default useReadCSV

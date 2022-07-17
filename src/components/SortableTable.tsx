@@ -1,9 +1,9 @@
-import * as React from "react";
-import Table from "react-bootstrap/Table";
-import { headers } from "constant/";
-import useReadCSV from "hooks/useReadCSV";
-import { Data, SortOrder, SortKeys } from "types";
-import { sortData } from "helpers/table";
+import * as React from "react"
+import Table from "react-bootstrap/Table"
+import { headers } from "constant/"
+import useReadCSV from "hooks/useReadCSV"
+import { Data, SortOrder, SortKeys } from "types"
+import { sortData } from "helpers/table"
 
 const SortButton = ({
   sortOrder,
@@ -11,29 +11,27 @@ const SortButton = ({
   sortKey,
   onClick,
 }: {
-  sortOrder: SortOrder;
-  columnKey: SortKeys;
-  sortKey: SortKeys;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  sortOrder: SortOrder
+  columnKey: SortKeys
+  sortKey: SortKeys
+  onClick: React.MouseEventHandler<HTMLButtonElement>
 }) => {
   return (
     <button
       onClick={onClick}
       className={`${
-        sortKey === columnKey && sortOrder === "desc"
-          ? "sort-button sort-reverse"
-          : "sort-button"
+        sortKey === columnKey && sortOrder === "desc" ? "sort-button sort-reverse" : "sort-button"
       }`}
     >
       ▲
     </button>
-  );
-};
+  )
+}
 
 const SortableTable: React.FC = () => {
-  const values = useReadCSV();
-  const [sortKey, setSortKey] = React.useState<SortKeys>("project_name");
-  const [sortOrder, setSortOrder] = React.useState<SortOrder>("ascn");
+  const values = useReadCSV()
+  const [sortKey, setSortKey] = React.useState<SortKeys>("project_name")
+  const [sortOrder, setSortOrder] = React.useState<SortOrder>("ascn")
 
   const sortedData = React.useCallback(
     () =>
@@ -43,25 +41,25 @@ const SortableTable: React.FC = () => {
         reverse: sortOrder === "desc",
       }),
 
-    [sortKey, sortOrder, values]
-  );
+    [sortKey, sortOrder, values],
+  )
 
   function changeSort(key: SortKeys) {
-    setSortOrder(sortOrder === "ascn" ? "desc" : "ascn");
+    setSortOrder(sortOrder === "ascn" ? "desc" : "ascn")
 
-    setSortKey(key);
+    setSortKey(key)
   }
 
-  const id = React.useId();
+  const id = React.useId()
 
-  const dataSorted = sortedData() as [];
+  const dataSorted = sortedData() as []
   return (
     <Table striped bordered hover>
       <thead>
         <tr>
           {headers?.map((row) => {
             return (
-              <td key={row.key} className="font-bold">
+              <td key={row.key} className='font-bold'>
                 {row.label}{" "}
                 <SortButton
                   columnKey={row.key}
@@ -72,7 +70,7 @@ const SortableTable: React.FC = () => {
                   }}
                 />
               </td>
-            );
+            )
           })}
         </tr>
       </thead>
@@ -86,11 +84,11 @@ const SortableTable: React.FC = () => {
               <td>{row.date}</td>
               <td>{row.member_name}</td>
             </tr>
-          );
+          )
         })}
       </tbody>
     </Table>
-  );
-};
+  )
+}
 
-export default SortableTable;
+export default SortableTable
