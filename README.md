@@ -1,4 +1,4 @@
-# Pectus Finance
+# Expense Data Table
 
 <img alt="view-1" src="src/assets/img/logo.png">
 
@@ -72,5 +72,4 @@ npm run build
 
 ### Thanks
 
-Thank you for your consideration and I hope to join your team soon :)  
 here are my <mehdi.kindly@gmail.com> and [website](https://www.mahdifalamarzi.info).
